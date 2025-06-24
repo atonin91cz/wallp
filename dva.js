@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function createMusicNote() {
     const note = document.createElement("div");
     note.className = "music-note";
+    note.innerHTML = "♪";
 
     const notes = ["♪", "♫", "♩", "♬", "♭", "♮"];
     note.textContent = notes[Math.floor(Math.random() * notes.length)];
@@ -61,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const color = colors[Math.floor(Math.random() * colors.length)];
 
     const posX = Math.random() * window.innerWidth;
-    const duration = Math.random() * 15 + 10; // Pomalejší pohyb
+    const duration = Math.random() * 8 + 6;
     const delay = Math.random() * 3;
     const fontSize = Math.random() * 20 + 16;
     const rotate = Math.random() * 360;
