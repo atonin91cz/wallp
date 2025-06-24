@@ -1,0 +1,212 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: "Arial", sans-serif;
+}
+
+.animated-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+  animation: bgTransition 60s infinite alternate;
+  z-index: -1;
+}
+
+@keyframes bgTransition {
+  0% {
+    background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+  }
+  20% {
+    background: linear-gradient(135deg, #2d3436, #1e272e, #0c2461);
+  }
+  40% {
+    background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);
+  }
+  60% {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  }
+  80% {
+    background: linear-gradient(135deg, #4b134f, #c94b4b, #f46b45);
+  }
+  100% {
+    background: linear-gradient(135deg, #1e3c72, #2a5298, #7b4397);
+  }
+}
+
+.camera-overlay {
+  width: 300px;
+  height: 300px;
+  bottom: 20px;
+  right: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  box-shadow: 0 0 30px rgba(100, 65, 165, 0.8);
+  z-index: 100;
+  backdrop-filter: blur(2px);
+}
+
+.star {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  filter: blur(1px);
+  animation: fall linear infinite;
+  z-index: 1;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+.streamer-info {
+  z-index: 10;
+}
+
+/* Efekty pro hvězdy */
+.star:nth-child(3n) {
+  background-color: #f5f7a0;
+  box-shadow: 0 0 10px #f5f7a0, 0 0 20px #f5f7a0;
+}
+
+.star:nth-child(3n + 1) {
+  background-color: #a0d8f7;
+  box-shadow: 0 0 10px #a0d8f7, 0 0 20px #a0d8f7;
+}
+
+.star:nth-child(3n + 2) {
+  background-color: #f7a0e0;
+  box-shadow: 0 0 10px #f7a0e0, 0 0 20px #f7a0e0;
+}
+
+/* Live badge styl */
+.live-container {
+  display: flex;
+  align-items: center;
+}
+
+.live-badge {
+  background: linear-gradient(135deg, #ff0000, #ff6b6b);
+  color: white;
+  padding: 3px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  animation: pulse 1.5s infinite, colorChange 3s infinite;
+  margin-right: 15px;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+}
+
+.live-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #ff8a00, #e52e71);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: textGlow 2s infinite alternate;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.nickname {
+  font-weight: bold;
+  background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 10px rgba(58, 123, 213, 0.5);
+  animation: nicknameGlow 3s infinite alternate;
+  letter-spacing: 2px;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes colorChange {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+@keyframes textGlow {
+  0% {
+    text-shadow: 0 0 5px rgba(255, 138, 0, 0.5);
+  }
+  100% {
+    text-shadow: 0 0 20px rgba(229, 46, 113, 0.8);
+  }
+}
+
+@keyframes nicknameGlow {
+  0% {
+    text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+  }
+  100% {
+    text-shadow: 0 0 25px rgba(58, 123, 213, 0.8);
+  }
+}
+
+/* Hudební noty */
+.music-note {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 24px;
+  animation: floatNote linear infinite;
+  z-index: 2;
+  filter: drop-shadow(0 0 5px currentColor);
+  opacity: 0.7;
+}
+
+@keyframes floatNote {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Částečky lávy v kruhu kamery */
+.lava-particle {
+  position: absolute;
+  background: linear-gradient(to bottom, #ff4500, #ff8c00);
+  border-radius: 50%;
+  filter: blur(1px);
+  animation: lava-fall linear infinite;
+  z-index: 101;
+  bottom: 0;
+  right: 0;
+}
+
+@keyframes lava-fall {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-150px) translateX(-150px);
+    opacity: 0;
+  }
+}
